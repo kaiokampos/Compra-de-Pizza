@@ -19,8 +19,12 @@ pizzaJson.map((item, index) => {
         ds('.pizzaInfo h1').innerText = pizzaJson[key].name;
         ds('.pizzaInfo .pizzaInfo--desc').innerText = pizzaJson[key].description;
         ds('.pizzaInfo--actualPrice').innerHTML = `R$ ${pizzaJson[key].price.toFixed(2)}`;
+        ds('.pizzaInfo--size.selected').classList.remove('selected');
 
         dsa('.pizzaInfo--size').forEach((size, sizeIndex) =>{
+            if (sizeIndex === 2) {
+                size.classList.add('selected')
+            }
             size.querySelector('span').innerHTML = pizzaJson[key].sizes[sizeIndex];
         });
         
