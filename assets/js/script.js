@@ -1,3 +1,5 @@
+let qtPizzaModal = 1;
+
 // funções auxiliares
 const ds = (element) => document.querySelector(element); // ds -> Document Select
 const dsa = (element) => document.querySelectorAll(element); // ds -> Document SelectAll
@@ -14,6 +16,7 @@ pizzaJson.map((item, index) => {
     pizzaItem.querySelector('a').addEventListener('click', (event) =>{
         event.preventDefault();
         let key = event.target.closest('.pizza-item').getAttribute('data-key');
+        qtPizzaModal = 1;
 
         ds('.pizzaBig img').src = pizzaJson[key].img;
         ds('.pizzaInfo h1').innerText = pizzaJson[key].name;
@@ -27,6 +30,8 @@ pizzaJson.map((item, index) => {
             }
             size.querySelector('span').innerHTML = pizzaJson[key].sizes[sizeIndex];
         });
+
+        ds('.pizzaInfo--qt').innerHTML = qtPizzaModal;
         
         
         
