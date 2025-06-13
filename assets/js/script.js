@@ -3,8 +3,6 @@ const ds = (element) => document.querySelector(element); // ds -> Document Selec
 const dsa = (element) => document.querySelectorAll(element); // ds -> Document SelectAll
 const cl = (element) => console.log(element);
 
-cl(pizzaJson);
-
 pizzaJson.map((item, index) => {
     let pizzaItem = ds('.models .pizza-item').cloneNode(true);
 
@@ -20,7 +18,12 @@ pizzaJson.map((item, index) => {
         ds('.pizzaBig img').src = pizzaJson[key].img;
         ds('.pizzaInfo h1').innerText = pizzaJson[key].name;
         ds('.pizzaInfo .pizzaInfo--desc').innerText = pizzaJson[key].description;
+        ds('.pizzaInfo--actualPrice').innerHTML = `R$ ${pizzaJson[key].price.toFixed(2)}`;
 
+        dsa('.pizzaInfo--size').forEach((size, sizeIndex) =>{
+            size.querySelector('span').innerHTML = pizzaJson[key].sizes[sizeIndex];
+        });
+        
         
         
         // Animação do modal, espera 200 ms para aplicar opacidade 1.
