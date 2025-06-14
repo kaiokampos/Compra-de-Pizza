@@ -75,3 +75,12 @@ ds('.pizzaInfo--qtmais').addEventListener('click', () =>{
     qtPizzaModal++;
     ds('.pizzaInfo--qt').innerHTML = qtPizzaModal;
 });
+
+dsa('.pizzaInfo--size').forEach((size) => {
+    size.addEventListener('click', (event) =>{
+        ds('.pizzaInfo--size.selected').classList.remove('selected');
+        size.classList.add('selected');
+    });
+    
+    
+});
