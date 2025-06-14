@@ -64,3 +64,14 @@ function closeModal(params) {
 dsa('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item) =>{
     item.addEventListener('click', closeModal);
 });
+
+ds('.pizzaInfo--qtmenos').addEventListener('click', () => {
+    if (qtPizzaModal > 1) {
+        qtPizzaModal--;
+        ds('.pizzaInfo--qt').innerHTML = qtPizzaModal;
+    }
+});
+ds('.pizzaInfo--qtmais').addEventListener('click', () =>{
+    qtPizzaModal++;
+    ds('.pizzaInfo--qt').innerHTML = qtPizzaModal;
+});
