@@ -64,36 +64,46 @@ function closeModal(params) {
   }, 500);
 }
 
-dsa('.pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton').forEach((item) =>{
-    item.addEventListener('click', closeModal);
+dsa(".pizzaInfo--cancelButton, .pizzaInfo--cancelMobileButton").forEach(
+  (item) => {
+    item.addEventListener("click", closeModal);
+  }
+);
+
+ds(".pizzaInfo--qtmenos").addEventListener("click", () => {
+  if (qtPizzaModal > 1) {
+    qtPizzaModal--;
+    ds(".pizzaInfo--qt").innerHTML = qtPizzaModal;
+  }
+});
+ds(".pizzaInfo--qtmais").addEventListener("click", () => {
+  qtPizzaModal++;
+  ds(".pizzaInfo--qt").innerHTML = qtPizzaModal;
 });
 
-ds('.pizzaInfo--qtmenos').addEventListener('click', () => {
-    if (qtPizzaModal > 1) {
-        qtPizzaModal--;
-        ds('.pizzaInfo--qt').innerHTML = qtPizzaModal;
-    }
-});
-ds('.pizzaInfo--qtmais').addEventListener('click', () =>{
-    qtPizzaModal++;
-    ds('.pizzaInfo--qt').innerHTML = qtPizzaModal;
-});
-
-dsa('.pizzaInfo--size').forEach((size) => {
-    size.addEventListener('click', (event) =>{
-        ds('.pizzaInfo--size.selected').classList.remove('selected');
-        size.classList.add('selected');
-    });
-});
-
-ds('.pizzaInfo--addButton').addEventListener('click', () =>{
-  let size = parseInt(ds('.pizzaInfo--size.selected').getAttribute('data-key'));
-
-  cart.push({
-    id : pizzaJson[modalKey].id,
-    size,
-    quantidade: qtPizzaModal
+dsa(".pizzaInfo--size").forEach((size) => {
+  size.addEventListener("click", (event) => {
+    ds(".pizzaInfo--size.selected").classList.remove("selected");
+    size.classList.add("selected");
   });
+});
+
+ds(".pizzaInfo--addButton").addEventListener("click", () => {
+  let size = parseInt(ds(".pizzaInfo--size.selected").getAttribute("data-key"));
+
+  let identifier = pizzaJson[modalKey].id + "@" + size;
+
+  let key = cart.findIndex((item) => (item.identifier == identifier));
+
+  if (key > -1) {
+    cart[key].quantidade += qtPizzaModal;
+  } else {
+    cart.push({
+      id: pizzaJson[modalKey].id,
+      size,
+      quantidade: qtPizzaModal,
+    });
+  }
 
   closeModal();
 });
