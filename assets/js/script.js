@@ -1,4 +1,6 @@
+let cart = [];
 let qtPizzaModal = 1;
+let modalKey = 0;
 
 // funções auxiliares
 const ds = (element) => document.querySelector(element); // ds -> Document Select
@@ -22,6 +24,7 @@ pizzaJson.map((item, index) => {
     event.preventDefault();
     let key = event.target.closest(".pizza-item").getAttribute("data-key");
     qtPizzaModal = 1;
+    modalKey = key;
 
     ds(".pizzaBig img").src = pizzaJson[key].img;
     ds(".pizzaInfo h1").innerText = pizzaJson[key].name;
@@ -81,6 +84,16 @@ dsa('.pizzaInfo--size').forEach((size) => {
         ds('.pizzaInfo--size.selected').classList.remove('selected');
         size.classList.add('selected');
     });
-    
-    
+});
+
+ds('.pizzaInfo--addButton').addEventListener('click', () =>{
+  let size = parseInt(ds('.pizzaInfo--size.selected').getAttribute('data-key'));
+
+  cart.push({
+    id : pizzaJson[modalKey].id,
+    size,
+    quantidade: qtPizzaModal
+  });
+
+  closeModal();
 });
