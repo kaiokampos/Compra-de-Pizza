@@ -39,10 +39,11 @@ Compra-de-Pizza/
 git clone https://github.com/kaiokampos/Compra-de-Pizza.git
 cd Compra-de-Pizza
 open index.html  # ou apenas clique duas vezes no arquivo
+```
 
 
 ## 🌍 Acessar online
-Acesse diretamente pela GitHub Pages
+Acesse diretamente pela  [GitHub Pages](https://kaiokampos.github.io/Compra-de-Pizza/)
 
 ## 💡 Aprendizados
 Este projeto proporciona prática com:
