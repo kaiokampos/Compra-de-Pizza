@@ -73,4 +73,4 @@ Este projeto proporciona prática com:
 Pull requests são bem-vindos. Para mudanças maiores, abra uma issue antes para discutirmos o que você deseja modificar.
 
 📄 Licença
-Este projeto está sob a licença MIT. Veja o arquivo LICENSE para mais detalhes.
+Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](./LICENSE) para mais detalhes.
